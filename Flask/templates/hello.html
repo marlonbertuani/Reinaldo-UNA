@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagina de Boas-Vindas</title>
+</head>
+
+<body>
+    <div>
+        <h1>Ola, <span class="welcome-name">{{ name }}</span>!</h1>
+        <p>Esta e a pagina de boas-vindas do Flask!</p>
+
+        <h2>O que voce pode fazer:</h2>
+        <ul>
+            <li><a href="/">Voltar para a pagina inicial</a></li>
+            <li><a href="/hello/Ana">Dizer ola para Ana</a></li>
+            <li><a href="/hello/Pedro">Dizer ola para Pedro</a></li>
+            <li><a href="/hello/Maria">Dizer ola para Maria</a></li>
+            <li><a href="/error">Testar pagina de erro</a></li>
+        </ul>
+                
+        <h3>Teste com seu nome:</h3>
+        <form action="/hello" method="get">
+            <input type="text" name="nome" placeholder="Digite seu nome" required>
+            <button type="submit">Dizer Ola!</button>
+        </form>
+    </div>
+</body>
+
+</html>
