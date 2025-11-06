@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Produtos</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #eee;
+        }
+
+        a,
+        button {
+            text-decoration: none;
+            color: rgb(255, 255, 255);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+
+        .editar {
+            background-color: #4CAF50;
+        }
+
+        .excluir {
+            background-color: #f44336;
+        }
+
+        .cadastrar {
+            background-color: #0000ff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Lista de Produtos</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Descrição</th>
+                <th>Preço Compra</th>
+                <th>Preço Venda</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for reg in regs %}
+            <tr>
+                <td>{{ reg[0] }}</td>
+                <td>{{ reg[1] }}</td>
+                <td>R$ {{ reg[2] }}</td>
+                <td>R$ {{ reg[3] }}</td>
+                <td>{{ reg[4] }}</td>
+                <td>
+                    <a class="editar" href="/produtos/editar/{{ reg[0] }}">Editar</a>
+                    <a class="excluir" href="/produtos/excluir/{{ reg[0] }}"
+                        onclick="return confirm('Deseja excluir este produto?')">Excluir</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a class="cadastrar" href="/produtos/cadastrar">Cadastrar novo produto</a></p>
+</body>
+
+</html>

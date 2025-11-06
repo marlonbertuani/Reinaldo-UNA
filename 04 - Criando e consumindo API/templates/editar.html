@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Editar Produto</h1>
+
+    <form method="POST">
+        <label for="descricao">Descrição:</label>
+        <input id="descricao" type="text" name="descricao" value="{{ produto[1] }}" required title="Descrição do produto" placeholder="Digite a descrição">
+
+        <label for="precocompra">Preço de Compra:</label>
+        <input id="precocompra" type="number" step="0.01" name="precocompra" value="{{ produto[2] }}" required title="Preço de compra" placeholder="0.00">
+
+        <label for="precovenda">Preço de Venda:</label>
+        <input id="precovenda" type="number" step="0.01" name="precovenda" value="{{ produto[3] }}" required title="Preço de venda" placeholder="0.00">
+
+        <button type="submit">Salvar alterações</button>
+    </form>
+
+    <p><a href="/produtos/listar">Voltar à lista</a></p>
+</body>
+
+</html>

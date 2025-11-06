@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            gap: 10px;
+        }
+
+        input,
+        button {
+            padding: 8px;
+        }
+
+        .mensagem {
+            margin-top: 15px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Cadastrar Produto</h1>
+
+    <form method="POST">
+        <label for="descricao">Descrição:</label>
+        <input id="descricao" type="text" name="descricao" placeholder="Digite a descrição do produto"
+            title="Descrição do produto" required>
+
+        <label for="precocompra">Preço de Compra:</label>
+        <input id="precocompra" type="number" name="precocompra" step="0.01" placeholder="0.00" title="Preço de compra"
+            required>
+
+        <label for="precovenda">Preço de Venda:</label>
+        <input id="precovenda" type="number" name="precovenda" step="0.01" placeholder="0.00" title="Preço de venda"
+            required>
+
+        <button type="submit">Cadastrar</button>
+    </form>
+
+    {% if mensagem %}
+    <div class="mensagem">{{ mensagem }}</div>
+    {% endif %}
+
+    <p><a href="/produtos/listar">Ver produtos cadastrados</a></p>
+</body>
+
+</html>
